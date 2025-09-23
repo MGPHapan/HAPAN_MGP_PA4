@@ -3,24 +3,24 @@
 
 ### ECE Board Exam Problem
 
-Using data wrangling and data visualization technique with storytelling, 
+Using data wrangling and data visualization techniques with storytelling, we are said to analyze the data and present different (i) data frames; and (ii) visuals using the dataset given
 
 #Import pandas
 
     import pandas as pd
 
-// Read board2.csv file
+#Read board2.csv file
 
     board = pd.read_csv('board2.csv')
     board
 
-// Provide Vis data frame
+#Provide data frame
 
     Vis = board.loc[(board['Math'] <70) & (board['Hometown'] == 'Visayas'), 
                 ['Name', 'Gender', 'Track', 'Math']]
     Vis
 
-// Provide Instru data frame and rename Electronics to Electronics >70
+#Provide Instru data frame and rename Electronics to Electronics >70
 
     Instru = board.loc[(board['Track'] == 'Instrumentation') &
                    (board['Hometown'] == 'Luzon') &
@@ -29,12 +29,12 @@ Using data wrangling and data visualization technique with storytelling,
     Instru = Instru.rename(columns={'Electronics': 'Electronics >70'})
     Instru
 
-// Add Average Column
+#Add Average Column
 
     board['Average'] = board[['Math', 'GEAS', 'Electronics','Communication']].mean(axis=1)
     board
 
-// Provide Mindy data frame and rename Electronics to Electronics >70
+#Provide Mindy data frame and rename Electronics to Electronics >70
 
     Mindy = board.loc[(board['Gender'] == 'Female') & 
                       (board['Hometown'] == 'Mindanao') & 
@@ -43,11 +43,12 @@ Using data wrangling and data visualization technique with storytelling,
     Mindy = Mindy.rename(columns={'Average': 'Average >=55'})
     Mindy
 
-// Import matplotlib
+
+#Import matplotlib
 
     import matplotlib.pyplot as plt
 
-// Show visualization of the Average Scores by Track using bar graph
+#Show visualization of the Average Scores by Track using bar graph
 
     track_avg = board.groupby('Track')['Average'].mean()
 
@@ -59,7 +60,7 @@ Using data wrangling and data visualization technique with storytelling,
     plt.xticks(rotation=-25)
     plt.show()
 
-// Show visualization of the Average Scores by Gender using bar graph
+#Show visualization of the Average Scores by Gender using bar graph
 
     track_avg = board.groupby('Gender')['Average'].mean()
     
@@ -71,7 +72,7 @@ Using data wrangling and data visualization technique with storytelling,
     plt.xticks(rotation=-25)
     plt.show()
 
-// Show visualization of the Average Scores by Hometown using bar graph
+#Show visualization of the Average Scores by Hometown using bar graph
 
     track_avg = board.groupby('Hometown')['Average'].mean()
     
