@@ -3,7 +3,9 @@
 
 ### ECE Board Exam Problem
 
-// Import pandas
+Using data wrangling and data visualization technique with storytelling, 
+
+#Import pandas
 
     import pandas as pd
 
